@@ -49,8 +49,8 @@ modules:
         path: xenia-canary.sh
     buildsystem: simple
     build-commands:
-      - python3 xb premake
-      - python3 xb build --config=release
+      - python3 xenia-build.py premake
+      - python3 xenia-build.py build --config=release
     post-install:
       - install -Dm755 build/bin/Linux/Release/xenia_canary $FLATPAK_DEST/bin/xenia-canary
       - install -Dm755 xenia-canary.sh $FLATPAK_DEST/bin/xenia-canary.sh
