@@ -37,8 +37,6 @@ modules:
       - type: git
         url: https://github.com/xenia-canary/xenia-canary.git
         tag: canary_experimental
-      - type: patch
-        path: 0001-remove-stdc++fs.patch
       - type: file
         path: org.xenia.Xenia-canary.desktop
       - type: file
