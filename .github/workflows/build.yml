@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: 'recursive'
-          path: 'xenia-edge'
+          path: 'xenia-canary'
 
       - name: Install dependencies
         run: |
@@ -31,26 +31,26 @@ jobs:
           flatpak update --appstream --assumeyes
 
       - name: Build Flatpak package
-        working-directory: xenia-edge
+        working-directory: xenia-canary
         run: |
-          flatpak-builder --repo=xenia-edge --force-clean build-dir org.xenia.xenia-edge.yaml
+          flatpak-builder --repo=xenia-canary --force-clean build-dir org.xenia.Xenia-canary.yaml
 
       - name: Bundle Flatpak app
-        working-directory: xenia-edge
+        working-directory: xenia-canary
         run: |
-          flatpak build-bundle xenia-edge xenia-edge.flatpak org.xenia.xenia-edge --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
-          flatpak build-bundle xenia-edge --runtime xenia-edge-debug.flatpak org.xenia.Xenia_canary.Debug --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
+          flatpak build-bundle xenia-canary xenia-canary.flatpak org.xenia.Xenia-canary --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
+          flatpak build-bundle xenia-canary --runtime xenia-canary-debug.flatpak org.xenia.Xenia_canary.Debug --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
       - name: Upload chiaki-ng Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: xenia-edge.flatpak
-          path: xenia-edge/xenia-edge.flatpak
+          name: xenia-canary.flatpak
+          path: xenia-canary/xenia-canary.flatpak
           if-no-files-found: error
           retention-days: 1
       - name: Upload chiaki-ng Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: xenia-edge-debug.flatpak
-          path: xenia-edge/xenia-edge-debug.flatpak
+          name: xenia-canary-debug.flatpak
+          path: xenia-canary/xenia-canary-debug.flatpak
           if-no-files-found: error
           retention-days: 1
