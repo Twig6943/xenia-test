@@ -38,7 +38,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/has207/xenia-edge.git
-        tag: canary_experimental
+        tag: edge
       - type: patch
         path: 0001-remove-stdc++fs.patch
       - type: file
