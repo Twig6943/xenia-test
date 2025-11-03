@@ -10,6 +10,7 @@ finish-args:
   - --share=network
   - --share=ipc
   - --socket=x11
+  - --socket=wayland
   - --device=all
   - --allow=bluetooth
   - --socket=pulseaudio
@@ -21,6 +22,7 @@ finish-args:
   - --filesystem=home:ro
   - --filesystem=/media
   - --filesystem=/run/media
+  - --filesystem=/mnt
 
 build-options:
   append-path: /usr/lib/sdk/llvm19/bin
@@ -35,7 +37,7 @@ modules:
   - name: xenia-canary
     sources:
       - type: git
-        url: https://github.com/xenia-canary/xenia-canary.git
+        url: https://github.com/has207/xenia-edge.git
         tag: canary_experimental
       - type: patch
         path: 0001-remove-stdc++fs.patch
